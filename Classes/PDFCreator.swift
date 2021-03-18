@@ -15,10 +15,7 @@ class PDFCreator{
     static let shared = PDFCreator()
     let pageRect = CGRect(x: 0, y: 0, width: 595.2, height: 841.8)
     var bottomSpace = CGFloat()
-    
-    
-    
-    
+
     //MARK:- Class Methods
     
     func createResume() -> Data {
@@ -35,19 +32,12 @@ class PDFCreator{
             context.beginPage()
             
             bottomSpace = addTitle(pageRect: pageRect)
-            
             bottomSpace = drawContactInfo(bottomSpace: bottomSpace, context: context)
-            
             bottomSpace = drawObjective(bottomSpace: bottomSpace, context: context)
-            
             bottomSpace = drawKeyQualifications(bottomSpace: bottomSpace, context: context)
-            
             bottomSpace = drawWorkExperience(bottomSpace: bottomSpace, context: context)
-            
             bottomSpace = drawEducation(bottomSpace: bottomSpace, context: context)
-            
             bottomSpace = drawReferences(bottomSpace: bottomSpace, context: context)
-            
         }
         
         return data ?? Data()
@@ -118,6 +108,7 @@ class PDFCreator{
                 }
             }
         })
+        
         return bottomTextSpace
     }
     
@@ -140,6 +131,7 @@ class PDFCreator{
                 }
             }
         })
+        
         return bottomTextSpace
     }
     

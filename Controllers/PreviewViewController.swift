@@ -11,11 +11,15 @@ import PDFKit
 class PreviewViewController: UIViewController {
     
     //MARK:- Class Properties
+    
     var documentURLString: String?
+    
     //MARK:- IBOutlets
+    
     @IBOutlet weak var previewView: PDFView!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -23,6 +27,7 @@ class PreviewViewController: UIViewController {
 }
 
 //MARK:- Class Methods
+
 extension PreviewViewController {
     
     fileprivate func initialSetup(){
@@ -36,10 +41,4 @@ extension PreviewViewController {
             previewView.document = document
         }
     }
-}
-
-//MARK:- IBActions
-extension PreviewViewController {
-    
-    
 }

@@ -12,14 +12,17 @@ import CoreGraphics
 class ResumeViewController: UIViewController {
     
     //MARK:- Class Properties
+    
     var data: Data?
     let contactInfo = AppManager.shared.resumeData.contactInfoData
     var pdfData: Data?
     
     //MARK:- IBOutlets
+     
     @IBOutlet weak var resumeView: PDFView!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -27,6 +30,7 @@ class ResumeViewController: UIViewController {
 }
 
 //MARK:- Class Methods
+
 extension ResumeViewController {
     
     fileprivate func initialSetup(){
@@ -40,13 +44,9 @@ extension ResumeViewController {
             self.resumeView.document = PDFDocument(data: document)
         }
         
-        //        let data = ResumeCreator.shared.prepareData()
-        //        resumeView.document = PDFDocument(data: data)
-        
         let shareButton = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonPressed))
         
         self.navigationItem.rightBarButtonItem = shareButton
-        
     }
     
     @objc func shareButtonPressed(sender: AnyObject){
@@ -55,11 +55,3 @@ extension ResumeViewController {
         dataViewModel.saveData(data: pdfData ?? Data(),fileName: contactInfo?.name ?? "Usama")
     }
 }
-
-//MARK:- IBActions
-extension ResumeViewController {
-    
-    
-    
-}
-

@@ -11,12 +11,16 @@ class ObjectiveViewController: UIViewController {
     
     //MARK:- Class Properties
     
+    let objectiveInfo = AppManager.shared.resumeData.objectiveData
+    
     //MARK:- IBOutlets
+    
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var objectiveTextField: UITextField!
     @IBOutlet weak var bulletPointSwitch: UISwitch!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +29,7 @@ class ObjectiveViewController: UIViewController {
     }
 }
 //MARK:- Class Methods
+
 extension ObjectiveViewController{
     
     fileprivate func initialSetup(){
@@ -40,8 +45,8 @@ extension ObjectiveViewController{
         
         if AppManager.shared.resumeData.objectiveData != nil {
             
-            contentTextView.text = AppManager.shared.resumeData.objectiveData?.content
-            objectiveTextField.text = AppManager.shared.resumeData.objectiveData?.title
+            contentTextView.text = objectiveInfo?.content
+            objectiveTextField.text = objectiveInfo?.title
             
         }
         
@@ -49,7 +54,7 @@ extension ObjectiveViewController{
     
     @objc func doneButtonPressed(sender: AnyObject){
         
-        if contentTextView.text != "" && objectiveTextField.text != "" {
+        if contentTextView.text.isEmpty == false && objectiveTextField.text?.isEmpty == false {
             
             let objectiveData = ObjectiveModel(content: contentTextView.text ?? "", title: objectiveTextField.text ?? "", bulletPointSwitch: bulletPointSwitch.state.rawValue)
             AppManager.shared.resumeData.objectiveData = objectiveData

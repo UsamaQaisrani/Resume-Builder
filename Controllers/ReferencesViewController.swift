@@ -11,20 +11,24 @@ class ReferencesViewController: UIViewController {
     
     //MARK:- Class Properties
     
+    let referenceInfo = AppManager.shared.resumeData.referenceData
+    
     //MARK:- IBOutlets
+    
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bulletPointSwitch: UISwitch!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
     }
-    
 }
 
 //MARK:- Class Methods
+
 extension ReferencesViewController {
     
     fileprivate func initialSetup(){
@@ -39,22 +43,19 @@ extension ReferencesViewController {
         
         if AppManager.shared.resumeData.referenceData != nil {
             
-            contentTextView.text = AppManager.shared.resumeData.referenceData?.content
-            titleTextField.text = AppManager.shared.resumeData.referenceData?.title
-            
+            contentTextView.text = referenceInfo?.content
+            titleTextField.text = referenceInfo?.title
         }
-        
     }
     
     @objc func doneButtonPressed(sender: AnyObject){
         
-        if contentTextView.text != "" && titleTextField.text != "" {
+        if contentTextView.text.isEmpty == false && titleTextField.text?.isEmpty == false {
             
             let referencesModel = ReferencesModel(title: titleTextField.text ?? "", content: contentTextView.text ?? "", bulletPointSwitch: bulletPointSwitch.state.rawValue)
             AppManager.shared.resumeData.referenceData = referencesModel
             
             self.navigationController?.popToRootViewController(animated: true)
-            
         }
         
         else {

@@ -8,15 +8,20 @@
 import UIKit
 
 class CoverLetterViewController: UIViewController {
+    
     //MARK:- Class Properties
     
+    let coverLetterInfo = AppManager.shared.resumeData.coverLetterData
+    
     //MARK:- IBOutlets
+    
     @IBOutlet weak var includeSwitch: UISwitch!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var addressedToTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -24,6 +29,7 @@ class CoverLetterViewController: UIViewController {
 }
 
 //MARK:- Class Methods
+
 extension CoverLetterViewController{
     
     fileprivate func initialSetup(){
@@ -40,16 +46,16 @@ extension CoverLetterViewController{
         
         if AppManager.shared.resumeData.coverLetterData != nil {
             
-            dateTextField.text = AppManager.shared.resumeData.coverLetterData?.date
-            addressedToTextField.text = AppManager.shared.resumeData.coverLetterData?.addressedTo
-            bodyTextView.text = AppManager.shared.resumeData.coverLetterData?.body
+            dateTextField.text = coverLetterInfo?.date
+            addressedToTextField.text = coverLetterInfo?.addressedTo
+            bodyTextView.text = coverLetterInfo?.body
             
         }
     }
     
     @objc func doneButtonPressed(sender: AnyObject){
         
-        if bodyTextView.text != "" && dateTextField.text != "" && addressedToTextField.text != "" {
+        if bodyTextView.text.isEmpty == false && dateTextField.text?.isEmpty == false && addressedToTextField.text?.isEmpty == false {
             
             let coverLetterData = CoverLetterModel(includeSwitch: includeSwitch.state.rawValue, date: dateTextField.text ?? "", addressedTo: addressedToTextField.text ?? "", body: bodyTextView.text ?? "")
             AppManager.shared.resumeData.coverLetterData = coverLetterData

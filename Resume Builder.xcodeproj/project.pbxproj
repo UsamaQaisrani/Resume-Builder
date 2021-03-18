@@ -240,6 +240,7 @@
 		04EA545C25F8B07D00CD337D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04F3BA7D25FB83D5002697F5 /* ResumeBaseModel.swift */,
 				04EA547325F8C8AA00CD337D /* ContactInfoModel.swift */,
 				042B2B5125FA06890040A57D /* CoverLetterModel.swift */,
 				042B2B5625FA07760040A57D /* ObjectiveModel.swift */,
@@ -247,7 +248,6 @@
 				042B2B6025FA08900040A57D /* WorkExperienceModel.swift */,
 				042B2B6F25FA335A0040A57D /* EducationModel.swift */,
 				042B2B7425FA340E0040A57D /* ReferencesModel.swift */,
-				04F3BA7D25FB83D5002697F5 /* ResumeBaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

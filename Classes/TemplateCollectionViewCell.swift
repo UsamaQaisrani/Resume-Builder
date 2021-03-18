@@ -10,12 +10,18 @@ import UIKit
 import PDFKit
 
 class TemplateCollectionViewCell : UICollectionViewCell{
-
-//MARK:- IBOutlets
-    @IBOutlet weak var templateView: PDFView!
+    
+//MARK:- Class Properties
+    
     var pdfView: PDFView?
 
+
+//MARK:- IBOutlets
+    
+    @IBOutlet weak var templateView: PDFView!
+    
 //MARK:- Class Methods
+    
     func configureCell(documentList: String){
         
         templateView.autoScales = true

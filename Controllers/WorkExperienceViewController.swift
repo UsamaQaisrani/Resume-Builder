@@ -10,11 +10,14 @@ import UIKit
 class WorkExperienceViewController: UIViewController {
     
     //MARK:- Class Properties
+    
     var itemCount = 1
     var workExperience = WorkExperienceModel()
     var accomplishmentArray : [String.SubSequence]?
+    let workExperienceInfo = AppManager.shared.resumeData.workExperienceData
     
     //MARK:- IBOutlets
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var addNewItemButton: UIButton!
@@ -22,8 +25,10 @@ class WorkExperienceViewController: UIViewController {
     //MARK:- Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         initialSetup()
     }
 }
@@ -41,19 +46,19 @@ extension WorkExperienceViewController{
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.title = "Work Experience"
         
-        if AppManager.shared.resumeData.workExperienceData != nil {
+        if workExperienceInfo != nil {
             
-            titleTextField.text = AppManager.shared.resumeData.workExperienceData?.title
+            titleTextField.text = workExperienceInfo?.title
             
             for index in 0 ..< itemCount {
                 
                 let indexPath = IndexPath(item: index, section: 0)
                 guard let cell = self.collectionView.cellForItem(at: indexPath) as? WorkExperienceCollectionViewCell else { continue }
                 
-                cell.positionTextField.text = AppManager.shared.resumeData.workExperienceData?.workedPlacesDetails[indexPath.row].position
-                cell.subtitleTextField.text = AppManager.shared.resumeData.workExperienceData?.workedPlacesDetails[indexPath.row].subtitle
-                cell.durationTextField.text = AppManager.shared.resumeData.workExperienceData?.workedPlacesDetails[indexPath.row].date
-                AppManager.shared.resumeData.workExperienceData?.workedPlacesDetails[indexPath.row].accomplishment?.forEach({ (accomplishment) in
+                cell.positionTextField.text = workExperienceInfo?.workedPlacesDetails[indexPath.row].position
+                cell.subtitleTextField.text = workExperienceInfo?.workedPlacesDetails[indexPath.row].subtitle
+                cell.durationTextField.text = workExperienceInfo?.workedPlacesDetails[indexPath.row].date
+                workExperienceInfo?.workedPlacesDetails[indexPath.row].accomplishment?.forEach({ (accomplishment) in
                     cell.accomplishmentTextView.text = accomplishment + "\n"
                 })
             }
@@ -69,7 +74,7 @@ extension WorkExperienceViewController{
             let indexPath = IndexPath(item: index, section: 0)
             guard let cell = self.collectionView.cellForItem(at: indexPath) as? WorkExperienceCollectionViewCell else { continue }
             
-            if cell.subtitleTextField.text != "" && cell.durationTextField.text != "" && cell.accomplishmentTextView.text != "" {
+            if cell.subtitleTextField.text?.isEmpty == false && cell.durationTextField.text?.isEmpty == false && cell.accomplishmentTextView.text.isEmpty == false {
                 
                 accomplishmentArray = cell.accomplishmentTextView.text.split(separator: "\n")
                 
@@ -83,11 +88,8 @@ extension WorkExperienceViewController{
             else {
                 
                 cell.positionTextField.showError(textField: cell.positionTextField)
-                
                 cell.subtitleTextField.showError(textField: cell.subtitleTextField)
-                
                 cell.durationTextField.showError(textField: cell.durationTextField)
-                
                 cell.accomplishmentTextView.showError(textView: cell.accomplishmentTextView)
                 
                 response = false
@@ -110,21 +112,21 @@ extension WorkExperienceViewController{
 }
 
 //MARK:- TableViewDelegate
+
 extension WorkExperienceViewController: UICollectionViewDelegate {
-    
-    
-    
+ 
 }
 
 extension WorkExperienceViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 10, height: collectionView.bounds.width)
         
+        return CGSize(width: collectionView.bounds.width - 10, height: collectionView.bounds.width)
     }
 }
 
 //MARK:- TableViewDataSource
+
 extension WorkExperienceViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -132,23 +134,28 @@ extension WorkExperienceViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "workExperienceCollectionViewCell", for: indexPath) as! WorkExperienceCollectionViewCell
         let work = AppManager.shared.resumeData.workExperienceData?.workedPlacesDetails[indexPath.row]
         
         cell.cellDelegate = self
         
         if work != nil {
+            
             cell.accomplishmentTextView.text = ""
             cell.configureCell(workExperience: work ?? WorkPlaceDetailsModel(), index: indexPath )
         }
-        else {
+        else{
+            
             cell.configureCell(workExperience: WorkPlaceDetailsModel(), index: indexPath)
         }
+        
         return cell
     }
 }
 
 //MARK:- WorkExperienceCollectionViewCellDelegate
+
 extension WorkExperienceViewController: WorkExperienceCollectionViewCellDelegate  {
     
     func didTapOnButton(cell: WorkExperienceCollectionViewCell) {
@@ -160,6 +167,7 @@ extension WorkExperienceViewController: WorkExperienceCollectionViewCellDelegate
 }
 
 //MARK:- IBActions
+
 extension WorkExperienceViewController{
     
     @IBAction func addNewItemButtonPressed(_ sender: Any) {

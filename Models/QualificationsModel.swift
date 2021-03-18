@@ -23,5 +23,4 @@ class QualificationsModel {
     init(){
         
     }
-    
 }

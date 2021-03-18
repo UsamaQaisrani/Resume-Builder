@@ -15,17 +15,19 @@ protocol EducationCollectionViewCellDelegate {
 class EducationCollectionViewCell: UICollectionViewCell {
 
 //MARK:- Class Properties
+    
     var cellDelegate: EducationCollectionViewCellDelegate?
     
 //MARK:- IBOutlets
+    
     @IBOutlet weak var degreeTextField: UITextField!
     @IBOutlet weak var schoolTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var accomplishmentTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
-
 }
 //MARK:- Class Methods
+
 extension EducationCollectionViewCell {
 
     func configureCell(education: EducationPlaceDetailsModel){
@@ -42,7 +44,6 @@ extension EducationCollectionViewCell {
         })
         
     }
-    
 }
 
 //MARK:- IBActions
@@ -57,5 +58,4 @@ extension EducationCollectionViewCell {
         
         cellDelegate?.didTapOnButton(cell: self)
     }
-    
 }

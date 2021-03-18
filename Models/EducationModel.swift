@@ -19,10 +19,7 @@ class EducationModel {
     
     init(){
         
-        
     }
-
-    
 }
 
 class EducationPlaceDetailsModel {

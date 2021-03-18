@@ -13,13 +13,17 @@ class ContactInfoViewController: UIViewController {
     
     //MARK:- Class Properties
     
+    let contactInfo = AppManager.shared.resumeData.contactInfoData
+    
     //MARK:- IBOutlets
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextFIeld: UITextField!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -43,18 +47,16 @@ extension ContactInfoViewController {
         
         if AppManager.shared.resumeData.contactInfoData != nil {
             
-            nameTextField.text = AppManager.shared.resumeData.contactInfoData?.name
-            addressTextField.text = AppManager.shared.resumeData.contactInfoData?.address
-            phoneTextField.text = AppManager.shared.resumeData.contactInfoData?.phoneNumber
-            emailTextFIeld.text = AppManager.shared.resumeData.contactInfoData?.email
-            
+            nameTextField.text = contactInfo?.name
+            addressTextField.text = contactInfo?.address
+            phoneTextField.text = contactInfo?.phoneNumber
+            emailTextFIeld.text = contactInfo?.email
         }
-        
     }
     
     @objc func doneButtonPressed(sender: AnyObject){
         
-        if nameTextField.text != "" && addressTextField.text != "" && phoneTextField.text != "" && emailTextFIeld.text != "" {
+        if nameTextField.text?.isEmpty == false && addressTextField.text?.isEmpty == false && phoneTextField.text?.isEmpty == false && emailTextFIeld.text?.isEmpty == false {
             
             let contactInfo = ContactInfoModel(name: nameTextField.text ?? "", address: addressTextField.text ?? "", email: emailTextFIeld.text ?? "", phoneNumber: phoneTextField.text ?? "")
             AppManager.shared.resumeData.contactInfoData = contactInfo
@@ -70,5 +72,4 @@ extension ContactInfoViewController {
             emailTextFIeld.showError(textField: emailTextFIeld)
         }
     }
-    
 }

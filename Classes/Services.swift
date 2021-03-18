@@ -11,14 +11,15 @@ import CoreData
 class Services {
     
     //MARK:- Class Properties
+    
     static let shared = Services()
     
     //MARK:- Class Methods
+    
     func getDocumentsDirectory() -> URL {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
-        
     }
     
     func saveData(data: Data, fileName: String){
@@ -47,7 +48,6 @@ class Services {
         
         let fm = FileManager.default
         let path = getDocumentsDirectory()
-        let stringPath = "\(path.absoluteURL)"
         var filesList = [String]()
         
         do{
@@ -60,8 +60,10 @@ class Services {
             }
         }
         catch{
+            
             print(error.localizedDescription)
         }
+        
         completion(filesList)
     }
 }

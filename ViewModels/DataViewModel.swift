@@ -11,18 +11,20 @@ import Foundation
 class DataViewModel {
     
     //MARK:- Class Properties
+    
     var contactInfo: ContactInfoModel?
     
     //MARK:- Initializers
+    
     init(contactInfo: ContactInfoModel){
         self.contactInfo = contactInfo
     }
     init(){
         
     }
-    
 }
 //MARK:- Class Methods
+
 extension DataViewModel {
     
     func createResume(completion: @escaping (Data)->Void){
@@ -33,7 +35,7 @@ extension DataViewModel {
     
     func saveData(data: Data, fileName: String){
         
-        Services.shared.saveData(data: data ?? Data(), fileName: fileName)
+        Services.shared.saveData(data: data , fileName: fileName)
     }
     
     func getData(completion: @escaping ([String])->Void) {

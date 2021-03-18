@@ -45,6 +45,7 @@ class ResumeBaseModel {
     init(contactInfo: ContactInfoModel) {
         self.contactInfoData = contactInfo
     }
+    
     init(dataList: [WorkExperienceModel]){
         self.dataList = dataList
     }

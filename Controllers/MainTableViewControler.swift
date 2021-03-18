@@ -10,19 +10,22 @@ import UIKit
 class MainTableViewController: UITableViewController {
 
     //MARK:- Class Properties
+    
 
     //MARK:- IBOutlets
+    
     @IBOutlet var mainTableView: UITableView!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        
     }
 }
 
 //MARK:- Class Methods
+
 extension MainTableViewController {
     
     func initialSetup(){

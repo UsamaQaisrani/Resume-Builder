@@ -13,16 +13,14 @@ protocol WorkExperienceCollectionViewCellDelegate {
     func didTapOnButton(cell: WorkExperienceCollectionViewCell)
 }
 
-
 class WorkExperienceCollectionViewCell: UICollectionViewCell {
-
-    
 
 //MARK:- Class Properties
     
     var cellDelegate: WorkExperienceCollectionViewCellDelegate?
     
 //MARK:- IBOutlets
+    
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var positionTextField: UITextField!
     @IBOutlet weak var subtitleTextField: UITextField!
@@ -38,9 +36,7 @@ extension WorkExperienceCollectionViewCell {
         
         self.layer.borderWidth = 0.5
         self.layer.cornerRadius = 10
-        
-            
-            
+
             positionTextField.text = workExperience.position
             subtitleTextField.text = workExperience.subtitle
             durationTextField.text = workExperience.date
@@ -48,9 +44,8 @@ extension WorkExperienceCollectionViewCell {
             workExperience.accomplishment?.forEach({ (accomplishment) in
                 accomplishmentTextView.text += accomplishment + "\n"
             })
-            
         
-    } 
+    }
 }
 
 //MARK:- IBActions

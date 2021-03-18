@@ -8,15 +8,20 @@
 import UIKit
 
 class QualificationViewController: UIViewController {
+    
     //MARK:- Class Properties
+    
     var qualificationsArray: [String.SubSequence]?
+    let qualificationsInfo = AppManager.shared.resumeData.qualificationsData
     
     //MARK:- IBOutlets
+    
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bulletPointSwitch: UISwitch!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -24,6 +29,7 @@ class QualificationViewController: UIViewController {
 }
 
 //MARK:- Class Methods
+
 extension QualificationViewController{
     
     fileprivate func initialSetup(){
@@ -36,13 +42,13 @@ extension QualificationViewController{
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.title = "Objective"
         
-        if AppManager.shared.resumeData.qualificationsData != nil {
+        if qualificationsInfo != nil {
             
             contentTextView.text = ""
-            AppManager.shared.resumeData.qualificationsData?.content?.forEach({ (content) in
+            qualificationsInfo?.content?.forEach({ (content) in
                 contentTextView.text += content + "\n"
             })
-            titleTextField.text = AppManager.shared.resumeData.qualificationsData?.title
+            titleTextField.text = qualificationsInfo?.title
         }
         
     }

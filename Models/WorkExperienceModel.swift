@@ -16,7 +16,6 @@ class WorkExperienceModel {
     var workedPlacesDetails = [WorkPlaceDetailsModel]()
     var tableDataArray = [WorkPlaceDetailsModel]()
     
-    
     init(title: String, experience: Float) {
         
         self.title = title
@@ -27,7 +26,6 @@ class WorkExperienceModel {
         
     }
 }
-
 
 class WorkPlaceDetailsModel {
     

@@ -11,14 +11,17 @@ class TemplateViewController: UIViewController {
     
     
     //MARK:- Class Properties
+    
     private let spacing:CGFloat = 9.0
     var documentsList =  [String]()
     
     
     //MARK:- IBOutlets
+    
     @IBOutlet weak var templateCollectionView: UICollectionView!
     
     //MARK:- Base Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -26,6 +29,7 @@ class TemplateViewController: UIViewController {
 }
 
 //MARK:- Class Methods
+
 extension TemplateViewController {
     
     fileprivate func initialSetup(){
@@ -43,6 +47,7 @@ extension TemplateViewController {
 }
 
 //MARK:- CollectionView DataSource
+
 extension TemplateViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return documentsList.count
@@ -56,6 +61,7 @@ extension TemplateViewController: UICollectionViewDataSource {
 }
 
 //MARK:- CollectionView Delegates
+
 extension TemplateViewController : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -66,6 +72,7 @@ extension TemplateViewController : UICollectionViewDelegate{
 }
 
 //MARK:- CollectionView FlowLayout
+
 extension TemplateViewController: UICollectionViewDelegateFlowLayout {
     
     
@@ -76,17 +83,14 @@ extension TemplateViewController: UICollectionViewDelegateFlowLayout {
         
         let totalSpacing = (1.5 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
         
-        if let collection = self.templateCollectionView{
+        if self.templateCollectionView != nil{
+            
             let width = (templateCollectionView.bounds.width - totalSpacing)/numberOfItemsPerRow
             return CGSize(width: width, height: width*1.355)
-        }else{
+        }
+        else{
+            
             return CGSize(width: 0, height: 0)
         }
     }
-}
-
-//MARK:- IBActions
-extension TemplateViewController {
-    
-    
 }
