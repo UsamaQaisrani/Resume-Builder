@@ -43,7 +43,7 @@ extension CoverLetterViewController{
             dateTextField.text = AppManager.shared.resumeData.coverLetterData?.date
             addressedToTextField.text = AppManager.shared.resumeData.coverLetterData?.addressedTo
             bodyTextView.text = AppManager.shared.resumeData.coverLetterData?.body
-
+            
         }
     }
     
@@ -59,31 +59,9 @@ extension CoverLetterViewController{
         }
         else {
             
-            if bodyTextView.text == ""{
-                
-                self.bodyTextView.layer.borderWidth = 0.5
-                self.bodyTextView.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            if dateTextField.text == "" {
-                
-                self.dateTextField.layer.borderWidth = 0.5
-                self.dateTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            if addressedToTextField.text == "" {
-                
-                self.addressedToTextField.layer.borderWidth = 0.5
-                self.addressedToTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
+            bodyTextView.showError(textView: bodyTextView)
+            dateTextField.showError(textField: dateTextField)
+            addressedToTextField.showError(textField: addressedToTextField)
         }
     }
-}
-
-//MARK:- IBActions
-extension CoverLetterViewController{
-    
-    
-    
 }

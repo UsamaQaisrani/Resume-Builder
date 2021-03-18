@@ -225,7 +225,7 @@ class PDFCreator{
         let textAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: textFont]
         let attributedText = NSAttributedString(string: text, attributes: textAttributes)
         let textStringSize = attributedText.size()
-        if (textTop + textStringSize.height) > 670 {
+        if (textTop + textStringSize.height) > 830 {
             context.beginPage()
             let bottomSpace: CGFloat = 35.0
             let textStringRect = CGRect(x: 10, y: bottomSpace, width: textStringSize.width, height: textStringSize.height)

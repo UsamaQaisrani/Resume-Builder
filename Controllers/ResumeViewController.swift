@@ -10,16 +10,16 @@ import PDFKit
 import CoreGraphics
 
 class ResumeViewController: UIViewController {
-
-//MARK:- Class Properties
+    
+    //MARK:- Class Properties
     var data: Data?
     let contactInfo = AppManager.shared.resumeData.contactInfoData
     var pdfData: Data?
     
-//MARK:- IBOutlets
+    //MARK:- IBOutlets
     @IBOutlet weak var resumeView: PDFView!
     
-//MARK:- Base Methods
+    //MARK:- Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -33,16 +33,16 @@ extension ResumeViewController {
         
         self.navigationItem.title = "Preview"
         self.resumeView.autoScales = true
-    
+        
         let dataViewModel = DataViewModel()
         dataViewModel.createResume { (document) in
             self.pdfData = document
             self.resumeView.document = PDFDocument(data: document)
         }
         
-//        let data = ResumeCreator.shared.prepareData()
-//        resumeView.document = PDFDocument(data: data)
-
+        //        let data = ResumeCreator.shared.prepareData()
+        //        resumeView.document = PDFDocument(data: data)
+        
         let shareButton = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonPressed))
         
         self.navigationItem.rightBarButtonItem = shareButton

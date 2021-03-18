@@ -9,13 +9,13 @@ import UIKit
 import PDFKit
 
 class PreviewViewController: UIViewController {
-
-//MARK:- Class Properties
+    
+    //MARK:- Class Properties
     var documentURLString: String?
-//MARK:- IBOutlets
+    //MARK:- IBOutlets
     @IBOutlet weak var previewView: PDFView!
     
-//MARK:- Base Methods
+    //MARK:- Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()

@@ -35,6 +35,7 @@ extension ContactInfoViewController {
         
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.title = "Contact Info"
+        
         self.nameTextField.layer.cornerRadius = 10
         self.addressTextField.layer.cornerRadius = 10
         self.phoneTextField.layer.cornerRadius = 10
@@ -63,38 +64,11 @@ extension ContactInfoViewController {
         }
         else {
             
-            if nameTextField.text == "" {
-                
-                self.nameTextField.layer.borderWidth = 0.5
-                self.nameTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            if addressTextField.text == ""{
-                
-                self.addressTextField.layer.borderWidth = 0.5
-                self.addressTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            if phoneTextField.text == ""{
-                
-                self.phoneTextField.layer.borderWidth = 0.5
-                self.phoneTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            if emailTextFIeld.text == "" {
-                
-                self.emailTextFIeld.layer.borderWidth = 0.5
-                self.emailTextFIeld.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
+            nameTextField.showError(textField: nameTextField)
+            addressTextField.showError(textField: addressTextField)
+            phoneTextField.showError(textField: phoneTextField)
+            emailTextFIeld.showError(textField: emailTextFIeld)
         }
     }
-    
-}
-
-//MARK:- IBActions
-extension ContactInfoViewController {
-    
-    
     
 }

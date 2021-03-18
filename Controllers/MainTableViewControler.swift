@@ -34,68 +34,60 @@ extension MainTableViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 128.0/255.0, green: 0.0/255.0, blue: 34.0/255.0, alpha: 1)
     }
     
+    func navigate(viewControllerName: String){
+        
+        let storyboard = self.storyboard?.instantiateViewController(identifier: viewControllerName) ?? UIViewController()
+        navigationController?.pushViewController(storyboard, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell = mainTableView.cellForRow(at: indexPath)
         cell?.selectionStyle = .none
         
         if cell?.tag == 0{
-            
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "contactInfoViewController") as! ContactInfoViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+
+            navigate(viewControllerName: "contactInfoViewController")
         }
         
         else if cell?.tag == 1{
-            
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "coverLetterViewController") as! CoverLetterViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+
+            navigate(viewControllerName: "coverLetterViewController")
         }
         
         else if cell?.tag == 2 {
-            
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "objectiveViewController") as! ObjectiveViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+
+            navigate(viewControllerName: "objectiveViewController")
         }
         
         else if cell?.tag == 3 {
             
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "qualificationViewController") as! QualificationViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+            navigate(viewControllerName: "qualificationViewController")
         }
         
         else if cell?.tag == 4 {
             
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "workExperienceViewController") as! WorkExperienceViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+            navigate(viewControllerName: "workExperienceViewController")
         }
         
         else if cell?.tag == 5 {
             
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "educationViewController") as! EducationViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+            navigate(viewControllerName: "educationViewController")
         }
         
         else if cell?.tag == 6 {
             
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "referencesViewController") as! ReferencesViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+            navigate(viewControllerName: "referencesViewController")
         }
         
         else if cell?.tag == 7 {
             
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "resumeViewController") as! ResumeViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+            navigate(viewControllerName: "resumeViewController")
         }
         
         else if cell?.tag == 8 {
             
-            let storyboard = self.storyboard?.instantiateViewController(identifier: "templateViewController") as! TemplateViewController
-            self.navigationController?.pushViewController(storyboard, animated: true)
+            navigate(viewControllerName: "templateViewController")
         }
     }
-}
-
-//MARK:- IBActions
-extension MainTableViewController {
-    
 }

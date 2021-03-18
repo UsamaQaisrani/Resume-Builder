@@ -21,8 +21,9 @@
 		045A4E412600A48100B4DB73 /* TemplateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4E402600A48100B4DB73 /* TemplateCollectionViewCell.swift */; };
 		045A4E4C2600A5E600B4DB73 /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4E4B2600A5E600B4DB73 /* TemplateViewController.swift */; };
 		045A4E542600E57C00B4DB73 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A4E532600E57C00B4DB73 /* PreviewViewController.swift */; };
+		04B01388260340E00089E0D1 /* TextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B01387260340E00089E0D1 /* TextFieldError.swift */; };
+		04B01395260351340089E0D1 /* TextViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B01394260351340089E0D1 /* TextViewError.swift */; };
 		04BB7C842601DBB900CCC0E8 /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB7C832601DBB900CCC0E8 /* PDFCreator.swift */; };
-		04BB7C892601E02A00CCC0E8 /* ResumeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB7C882601E02A00CCC0E8 /* ResumeCreator.swift */; };
 		04C928B825FA7CA70093FB47 /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C928B725FA7CA70093FB47 /* ResumeViewController.swift */; };
 		04EA542825F8B04A00CD337D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA542725F8B04A00CD337D /* AppDelegate.swift */; };
 		04EA542A25F8B04A00CD337D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA542925F8B04A00CD337D /* SceneDelegate.swift */; };
@@ -78,8 +79,9 @@
 		045A4E402600A48100B4DB73 /* TemplateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCollectionViewCell.swift; sourceTree = "<group>"; };
 		045A4E4B2600A5E600B4DB73 /* TemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		045A4E532600E57C00B4DB73 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		04B01387260340E00089E0D1 /* TextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldError.swift; sourceTree = "<group>"; };
+		04B01394260351340089E0D1 /* TextViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewError.swift; sourceTree = "<group>"; };
 		04BB7C832601DBB900CCC0E8 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
-		04BB7C882601E02A00CCC0E8 /* ResumeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeCreator.swift; sourceTree = "<group>"; };
 		04C928B725FA7CA70093FB47 /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		04EA542425F8B04A00CD337D /* Resume Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resume Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EA542725F8B04A00CD337D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,9 +145,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B0139026034CAC0089E0D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04B01387260340E00089E0D1 /* TextFieldError.swift */,
+				04B01394260351340089E0D1 /* TextViewError.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		04EA541B25F8B04A00CD337D = {
 			isa = PBXGroup;
 			children = (
+				04B0139026034CAC0089E0D1 /* Extensions */,
 				04EA545F25F8B0BC00CD337D /* Classes */,
 				04EA545D25F8B08600CD337D /* ViewModels */,
 				04EA545C25F8B07D00CD337D /* Models */,
@@ -266,7 +278,6 @@
 				042B2B6525FA162E0040A57D /* Services.swift */,
 				04F3BA7825FB83B3002697F5 /* AppManager.swift */,
 				04BB7C832601DBB900CCC0E8 /* PDFCreator.swift */,
-				04BB7C882601E02A00CCC0E8 /* ResumeCreator.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -534,6 +545,7 @@
 			files = (
 				04F3BA7E25FB83D5002697F5 /* ResumeBaseModel.swift in Sources */,
 				042B2B7525FA340E0040A57D /* ReferencesModel.swift in Sources */,
+				04B01395260351340089E0D1 /* TextViewError.swift in Sources */,
 				04EA548925F8E7C000CD337D /* CoverLetterViewController.swift in Sources */,
 				042B2B5C25FA08230040A57D /* QualificationsModel.swift in Sources */,
 				042B2B4825F9F9FB0040A57D /* EducationCollectionViewCell.swift in Sources */,
@@ -551,12 +563,12 @@
 				04EA546F25F8C00E00CD337D /* ContactInfoViewController.swift in Sources */,
 				04BB7C842601DBB900CCC0E8 /* PDFCreator.swift in Sources */,
 				04EA549325F8F5A900CD337D /* QualificationViewController.swift in Sources */,
+				04B01388260340E00089E0D1 /* TextFieldError.swift in Sources */,
 				04C928B825FA7CA70093FB47 /* ResumeViewController.swift in Sources */,
 				04EA549D25F900AC00CD337D /* WorkExperienceCollectionViewCell.swift in Sources */,
 				04EA542825F8B04A00CD337D /* AppDelegate.swift in Sources */,
 				042B2B4325F9F94E0040A57D /* EducationViewController.swift in Sources */,
 				042B2B4D25FA01750040A57D /* ReferencesViewController.swift in Sources */,
-				04BB7C892601E02A00CCC0E8 /* ResumeCreator.swift in Sources */,
 				04EA547425F8C8AA00CD337D /* ContactInfoModel.swift in Sources */,
 				045A4E4C2600A5E600B4DB73 /* TemplateViewController.swift in Sources */,
 				04EA542A25F8B04A00CD337D /* SceneDelegate.swift in Sources */,

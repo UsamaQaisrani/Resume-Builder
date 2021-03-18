@@ -8,17 +8,17 @@
 import UIKit
 
 class TemplateViewController: UIViewController {
-
-
-//MARK:- Class Properties
+    
+    
+    //MARK:- Class Properties
     private let spacing:CGFloat = 9.0
     var documentsList =  [String]()
-
     
-//MARK:- IBOutlets
+    
+    //MARK:- IBOutlets
     @IBOutlet weak var templateCollectionView: UICollectionView!
     
-//MARK:- Base Methods
+    //MARK:- Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()

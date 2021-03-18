@@ -8,18 +8,18 @@
 import UIKit
 
 class EducationViewController: UIViewController {
-
-//MARK:- Class Properties
+    
+    //MARK:- Class Properties
     var itemCount = 1
     var educationDetails: EducationModel?
     var accomplishmentArray: [String.SubSequence]?
     
-//MARK:- IBOutlets
+    //MARK:- IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var addNewItemButton: UIButton!
     
-//MARK:- Base Methods
+    //MARK:- Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -63,35 +63,20 @@ extension EducationViewController{
             }
             else {
                 
-                if cell.degreeTextField.text == ""{
-                    
-                    cell.degreeTextField.layer.borderWidth = 0.5
-                    cell.degreeTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.degreeTextField.showError(textField: cell.degreeTextField)
                 
-                if cell.schoolTextField.text == "" {
-                    
-                    cell.schoolTextField.layer.borderWidth = 0.5
-                    cell.schoolTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.schoolTextField.showError(textField: cell.schoolTextField)
                 
-                if cell.dateTextField.text == "" {
-                    
-                    cell.dateTextField.layer.borderWidth = 0.5
-                    cell.dateTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.dateTextField.showError(textField: cell.dateTextField)
                 
-                if cell.accomplishmentTextView.text == "" {
-                    
-                    cell.accomplishmentTextView.layer.borderWidth = 0.5
-                    cell.accomplishmentTextView.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.accomplishmentTextView.showError(textView: cell.accomplishmentTextView)
+                
                 response = false
             }
         }
         
         AppManager.shared.resumeData.educationData = educationDetails
-            completion(response)
+        completion(response)
     }
     
     @objc func doneButtonPressed(sender: AnyObject){
@@ -161,6 +146,5 @@ extension EducationViewController{
         itemCount += 1
         collectionView.reloadData()
     }
-    
 }
 

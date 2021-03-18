@@ -59,24 +59,8 @@ extension ObjectiveViewController{
         }
         else{
             
-            if contentTextView.text == ""{
-                
-                contentTextView.layer.borderWidth = 0.5
-                contentTextView.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            if objectiveTextField.text == "" {
-                
-                objectiveTextField.layer.borderWidth = 0.5
-                objectiveTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
+            contentTextView.showError(textView: contentTextView)
+            objectiveTextField.showError(textField: objectiveTextField)
         }
     }
-}
-//MARK:- IBActions
-extension ObjectiveViewController{
-    
-    
-    
 }

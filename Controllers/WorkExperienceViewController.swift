@@ -82,29 +82,13 @@ extension WorkExperienceViewController{
             
             else {
                 
-                if cell.positionTextField.text == "" {
-                    
-                    cell.positionTextField.layer.borderWidth = 0.5
-                    cell.positionTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.positionTextField.showError(textField: cell.positionTextField)
                 
-                if cell.subtitleTextField.text == "" {
-                    
-                    cell.subtitleTextField.layer.borderWidth = 0.5
-                    cell.subtitleTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.subtitleTextField.showError(textField: cell.subtitleTextField)
                 
-                if cell.durationTextField.text == "" {
-                    
-                    cell.durationTextField.layer.borderWidth = 0.5
-                    cell.durationTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.durationTextField.showError(textField: cell.durationTextField)
                 
-                if cell.accomplishmentTextView.text == "" {
-                    
-                    cell.accomplishmentTextView.layer.borderWidth = 0.5
-                    cell.accomplishmentTextView.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                }
+                cell.accomplishmentTextView.showError(textView: cell.accomplishmentTextView)
                 
                 response = false
             }
@@ -115,14 +99,13 @@ extension WorkExperienceViewController{
     
     @objc func doneButtonPressed(sender: AnyObject){
         
-
         saveDataIntoDataArray { (response) in
+            
             if response == true {
                 
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        
     }
 }
 

@@ -59,27 +59,8 @@ extension ReferencesViewController {
         
         else {
             
-            if contentTextView.text == "" {
-                
-                self.contentTextView.layer.borderWidth = 0.5
-                self.contentTextView.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            
-            if titleTextField.text == "" {
-                
-                self.titleTextField.layer.borderWidth = 0.5
-                self.titleTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-                
-            }
-            
+            contentTextView.showError(textView: contentTextView)
+            titleTextField.showError(textField: titleTextField)
         }
     }
-}
-
-//MARK:- IBActions
-extension ReferencesViewController {
-    
-    
-    
 }

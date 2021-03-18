@@ -8,15 +8,15 @@
 import UIKit
 
 class QualificationViewController: UIViewController {
-//MARK:- Class Properties
+    //MARK:- Class Properties
     var qualificationsArray: [String.SubSequence]?
     
-//MARK:- IBOutlets
+    //MARK:- IBOutlets
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bulletPointSwitch: UISwitch!
     
-//MARK:- Base Methods
+    //MARK:- Base Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -59,26 +59,10 @@ extension QualificationViewController{
             self.navigationController?.popToRootViewController(animated: true)
             
         }
-        if contentTextView.text == "" {
+        else{
             
-            contentTextView.layer.borderWidth = 0.5
-            contentTextView.layer.cornerRadius = 10
-            contentTextView.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
+            contentTextView.showError(textView: contentTextView)
+            titleTextField.showError(textField: titleTextField)
         }
-        if titleTextField.text == "" {
-
-            titleTextField.layer.borderWidth = 0.5
-            titleTextField.layer.cornerRadius = 10
-            titleTextField.layer.borderColor = CGColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-        }
-        
     }
-    
-}
-
-//MARK:- IBActions
-extension QualificationViewController{
-    
-    
-    
 }
